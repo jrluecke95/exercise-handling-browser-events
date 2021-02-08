@@ -1,3 +1,9 @@
+<!-- ### Log Button Pressed
+
+Create a button that logs "You Left Clicked" to the console when clicked.
+
+- Hint: You will need to access the `event` object. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +12,14 @@
   <title>Button Pressed</title>
 </head>
 <body>
-  <!-- HTML goes here -->
+  <button class="button">Cilck me</button>
 
   <script>
-    // JavaScript goes here
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('button')) {
+        console.log('You Left Clicked');
+      }
+    })
 
   </script>
 </body>

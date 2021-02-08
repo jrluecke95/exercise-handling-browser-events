@@ -1,3 +1,7 @@
+<!-- ### Log Button Click
+
+Create a button that logs "Button Pressed" to the console when clicked. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +10,14 @@
   <title>Button Click</title>
 </head>
 <body>
-  <!-- HTML goes here -->
+  <button id="logger">Click Me</button>
 
   <script>
-    // JavaScript goes here
+    const button = document.querySelector('#logger');
+    function click() {
+      console.log('Farts');
+    }
+    button.addEventListener('click', click);
 
   </script>
 </body>

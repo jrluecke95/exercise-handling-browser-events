@@ -1,3 +1,13 @@
+<!-- ### Add a scroll event
+
+Add an event to log "You Change the size of the Window!" to the console when a user resizes the browser. 
+The following code is how you would add a 'resize' event. You can use this as a prompt to start the 'scroll' event.
+
+> **Note**: You may also want to research a 'debounce' function. 
+Running an event handler every time the page scrolls can be a heavy procedure and a 'debounce' function will help with that. -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +16,49 @@
   <title>Scroll Events</title>
 </head>
 <body>
-  <!-- HTML goes here -->
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  <h1>Helo ther</h1>
+  
 
   <script>
-    // JavaScript goes here
+    const debounce = (func, delay) => { 
+      let debounceTimer 
+      return function() { 
+          const context = this;
+          const args = arguments; 
+              clearTimeout(debounceTimer) 
+                  debounceTimer 
+              = setTimeout(() => func.apply(context, args), delay) 
+      } 
+    }
+    window.addEventListener('scroll', debounce(function(event) {
+      console.log('you changed the size of the window')
+    }, 3000))
 
   </script>
 </body>

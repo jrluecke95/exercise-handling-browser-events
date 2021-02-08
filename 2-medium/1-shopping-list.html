@@ -1,9 +1,17 @@
+<!-- ### Shopping List
+
+Create a Shopping List using Event Listeners and DOM elements
+
+- Use input elements enter in new items for shopping list.
+  - Add a button to submit inputs and render the input values to the DOM.
+- Add a button to the DOM for each new item in shopping list that can be used to remove the item. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MadLib</title>
+  <title>Shopping List</title>
 </head>
 <body>
   <!-- HTML goes here -->
@@ -20,12 +28,30 @@
     <label for="item">Add New Item</label>
     <br>
     <input type="text" name="item" id="item">
-    <button type="submit">Add</button>
+    <button type="submit" id="add">Add</button>
   </form>
 
   <script>
-    // JavaScript goes here
+    const addButton = document.querySelector('#add');
+
+    function addItem() {
+      let shopList = document.querySelector('#shoppingList');
+      const listItem = document.createElement('li');
+      listItem.innerText = document.querySelector('#item').value;
+      console.log(listItem.innerText)
+      shopList.append(listItem);
+    }
+
+    addButton.addEventListener('click', addItem);
     
+    // let shopList = document.querySelector('#shoppingList');
+    // let items = shopList.querySelectorAll('li');
+    // const deleteButton = document.createElement('button');
+    // deleteButton.innerText = "Delete item";
+    // for (let i = 0; i < items; i++) {
+    //   items.append(deleteButton);
+    // }
+
   </script>
 </body>
 </html>
