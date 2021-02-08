@@ -1,3 +1,23 @@
+<!-- ### MadLib
+
+A Mad Libs is a word game where one player prompts others for a list of words to substitute for blanks in a story before reading the paragraph.
+
+- Look at the example story in the HTML and open it in the browser
+- Notice that the story is hidden in the browser but the HTML is still in the document
+- Add more inputs for each of the placeholder elements
+- Use an event listener on the form to do the following:
+  - Replace the contents of the placeholders with the inputs from the form
+  - Show the Story
+  - Hide the form
+  - Make sure you replace all the words. The same word may be used twice in the story!
+- Once the story shows, add an event listener to the reset button to do the following:
+  - Hide the Story
+  - Show the Form
+  - Clear out the form inputs
+
+> **Bonus**: Refactor! Are you repeating any code? Can you use functions to make the code less repetitive? -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +35,52 @@
       <br>
       <input type="text" name="animal" id="animal">
     </p>
-    <button type="submit">Do the MadLib!</button>
+    <p>
+      <label for="country">Country</label>
+      <br>
+      <input type="text" name="country" id="country">
+    </p>
+    <p>
+      <label for="pluralNoun">Plural Noun</label>
+      <br>
+      <input type="text" name="pluralNoun" id="pluralNoun">
+    </p>
+    <p>
+      <label for="food">Food</label>
+      <br>
+      <input type="text" name="food" id="food">
+    </p>
+    <p>
+      <label for="device">Device</label>
+      <br>
+      <input type="text" name="device" id="device">
+    </p>
+    <p>
+      <label for="noun">Noun</label>
+      <br>
+      <input type="text" name="noun" id="noun">
+    </p>
+    <p>
+      <label for="adjective">Adjective</label>
+      <br>
+      <input type="text" name="adjective" id="adjective">
+    </p>
+    <p>
+      <label for="country2">Country</label>
+      <br>
+      <input type="text" name="country2" id="country2">
+    </p>
+    <p>
+      <label for="adjective2">Adjective</label>
+      <br>
+      <input type="text" name="adjective2" id="adjective2">
+    </p>
+    <p>
+      <label for="device2">Device</label>
+      <br>
+      <input type="text" name="device2" id="device2">
+    </p>
+    <button type="submit" id="submit">Do the MadLib!</button>
   </form>
   
   <div id="madLibStory" style="display: none">
@@ -39,7 +104,44 @@
   </div>
 
   <script>
-    // JavaScript goes here
+
+    const run = document.querySelector('#submit');
+
+    function displayMadLib(event) {
+      event.preventDefault();
+      const blanks = document.querySelectorAll('span');
+      let answers = [];
+      let inputs = document.querySelectorAll('input');
+      for (let i = 0; i < inputs.length; i++) {
+        answers.push(inputs[i].value);
+      }
+      for (let j = 0; j < blanks.length; j++) {
+        blanks[j].innerText = answers[j];
+      }
+      let story = document.getElementById('madLibStory');
+      story.style.display = 'block';
+
+      let form = document.getElementById('madLibForm');
+      form.style.display = 'none';
+    }
+
+    run.addEventListener('click', displayMadLib);
+
+    const restart = document.getElementById('restart');
+
+    function restartMadLib() {
+      let form = document.getElementById('madLibForm');
+      let story = document.getElementById('madLibStory');
+      form.style.display = 'block';
+      story.style.display = 'none';
+      let inputList = document.querySelectorAll('input');
+      for (let i = 0; i < inputList.length; i++) {
+        inputList[i].value = '';
+      }
+    }
+
+    restart.addEventListener('click', restartMadLib);
+
 
   </script>
 </body>

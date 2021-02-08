@@ -34,24 +34,31 @@ Create a Shopping List using Event Listeners and DOM elements
   <script>
     const addButton = document.querySelector('#add');
 
-    function addItem() {
+    addButton.addEventListener('click', function(event) {
+      event.preventDefault();
       let shopList = document.querySelector('#shoppingList');
-      const listItem = document.createElement('li');
-      listItem.innerText = document.querySelector('#item').value;
-      console.log(listItem.innerText)
+      let listItem = document.createElement('li');
+      listItem.innerHTML = document.querySelector('#item').value;
       shopList.append(listItem);
+      document.querySelector('#item').value = '';
+
+      let deleteButton = document.createElement('button');
+      deleteButton.innerText = 'Delete item';
+      deleteButton.setAttribute('class', 'delete')
+      listItem.append(deleteButton);
+    });
+
+    function deleteItem(event) {
+      if (event.target.classList.contains('delete')) {
+        event.preventDefault();
+        let button = event.target;
+        let item = button.parentElement;
+        button.remove();
+        item.remove();
+      }
     }
 
-    addButton.addEventListener('click', addItem);
-    
-    // let shopList = document.querySelector('#shoppingList');
-    // let items = shopList.querySelectorAll('li');
-    // const deleteButton = document.createElement('button');
-    // deleteButton.innerText = "Delete item";
-    // for (let i = 0; i < items; i++) {
-    //   items.append(deleteButton);
-    // }
-
+    document.addEventListener('click', deleteItem)
   </script>
 </body>
 </html>
