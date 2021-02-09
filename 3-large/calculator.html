@@ -1,3 +1,23 @@
+<!-- ### Calculator
+
+Using the following parameters and starter code to create a calculator.
+
+- Add click handlers to the number buttons
+  - Create an array of the numbers clicked, in order
+- Add click handlers to the calculation buttons
+  - Create an array of the operators
+  - Don't let a user start with an operator
+  - Don't let a user type multiple operators (i.e. you can't type '--' or '++' or "*+")
+- Add click handler to the 'equals' button
+  - The 'equals' button needs to trigger a few events (NOTE: These will be functions)
+  - Loop through the array of numbers (NOTE: These are currently strings)
+  - Convert the strings to integers
+  - Write a new array of integers
+  - Get an array of the operators
+  - Perform each math operation (NOTE: We'll use 4 while loops)
+- Add click handler clearing the input on press of clear -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +28,34 @@
 </head>
 <body>
     <!-- HTML goes here -->
+    <div>
+      <button class='number' id='1'>1</button>
+      <button class='number' id='2'>2</button>
+      <button class='number' id='3'>3</button>
+    </div>
+    <div>
+      <button class='number' id='4'>4</button>
+      <button class='number' id='5'>5</button>
+      <button class='number' id='6'>6</button>
+    </div>
+    <div>
+      <button class='number' id='7'>7</button>
+      <button class='number' id='8'>8</button>
+      <button class='number' id='9'>9</button>
+    </div>
+    <div>
+      <button class='operator' id='add'>+</button>
+      <button class='operator' id='subtract'>-</button>
+      <button class='operator' id='multi'>*</button>
+      <button class='operator' id='divide'>/</button>
+    </div>
+    <div>
+      <button id='equals'>=</button>
+    </div>
+    <div>
+      <button id='clear'>Clear</button>
+    </div>
+    <input type='text'>
 
     <script src="./script.js"></script>
 </body>
